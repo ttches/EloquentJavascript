@@ -1,0 +1,16 @@
+//create a reversed array by building a new array.
+function reverseArray(data) {
+  newArray=[]
+  while (data.length !== 0) {
+    newArray.push(data.pop());
+  }
+  return newArray;
+};
+//create reversed array within the same array. I actually like my answer better than the book's here.
+function reverseArrayInPlace(data) {
+  for (var i = 0; i < data.length; i++) {
+    data.splice(i, 0, data[data.length - 1]);
+    data.splice(data.length - 1, 1);
+  }
+  return data;
+};
