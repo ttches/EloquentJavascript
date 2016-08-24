@@ -14,3 +14,40 @@ function reverseArrayInPlace(data) {
   }
   return data;
 };
+function arrayToList(data){
+  var previousList = null
+  var list = {}
+  for (var i = data.length - 1; i >= 0; i--) {
+    list.value = data[i];
+    list.rest = previousList;
+    previousList = list;
+    list = {};
+  }
+  return previousList;
+};
+
+function listToArray(list) {
+  newArray = []
+  while (true) {
+    newArray.push(list.value);
+    if (list.rest === null) {
+      return newArray;
+    }
+    list = list.rest;
+  }
+};
+
+function prepend(value, rest) {
+  list = {}
+  list.value = value;
+  list.rest = rest;
+  return list;
+};
+
+function nth(list, n) {
+  if (n === 0) {
+    return list.value;
+  }else{
+    return nth(list.rest, n-1);
+  }
+};
